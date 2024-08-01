@@ -5,7 +5,7 @@ const Home = ({ selectedRange, setSelectedRange}) => {
   return (
     <header>
       <h1>Arc-En-Ciel</h1>
-      <label className="offscreen" htmlFor="songRange">Number of Song</label>
+      <label htmlFor="songRange">{selectedRange}</label>
       <input
         className="songRange" 
         id="songRange" 

@@ -8,15 +8,16 @@ const Main = ({ selectedRange, songData}) => {
   const randomize = () => {
     if(selectedRange < songData.length){
       let newArray = []
-      while (newArray.length > selectedRange){
+      while (newArray.length < selectedRange){
         let random = Math.floor(Math.random() * songData.length)
         let newValue = songData[random]
+        console.log(newValue)
         if(newArray.length === 0){
           newArray.push(newValue)
         }else{
           let unique = true
           newArray.map((song) => song.index === newValue.index ? unique = false : null)
-          unique ? newArray.push(newValue) : null
+          unique ? newArray.push(newValue) : console.log(newArray)
         }
       }
       setRandomizedSong(newArray)
@@ -31,7 +32,7 @@ const Main = ({ selectedRange, songData}) => {
     <table>
       <tbody>
         {randomizedSong &&
-          randomizedSong.map((song) => <Row song={song} />)}
+          randomizedSong.map((song) => <Row  key={song.index} song={song} />)}
       </tbody>
     </table>
   )
